@@ -1,0 +1,28 @@
+model = HEL_UFO ( ufo ("/afs/cern.ch/work/n/ngrieser/MuonCollider/Sudakov-Hgamma-MuonCollider/Cards/models"))
+
+# Process definition for mu+ mu- > h photon
+process hgamma = "mu-", "mu+" => H, a
+beams = "mu-", "mu+" => none
+
+
+# Muon collider energy
+sqrts = 10 TeV
+
+compile
+
+# Enable electroweak corrections (includes Sudakov logs)
+#include_ew = true
+
+integrate (hgamma)
+
+
+# Event generation
+n_events = 100  # Be small to not make lxplus people mad 
+
+# LHEF output with version specification
+$lhef_version = "3.0"
+simulate (hgamma) {
+  $sample = "mu_mu_h_gamma"
+  sample_format = lhef
+}
+

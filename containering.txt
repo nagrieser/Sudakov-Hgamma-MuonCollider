@@ -1,0 +1,4 @@
+apptainer exec --env LBENV_SOURCED= -B /afs/cern.ch/user -B /afs/cern.ch/work -B /cvmfs -e /cvmfs/lhcb.cern.ch/containers/os-base/centos7-devel/prod/amd64 bash --rcfile /cvmfs/lhcb.cern.ch/lib/LbEnv
+# Use the FCC stuff from key4hep to get Modern Whizard:
+
+source /cvmfs/sw.hsf.org/key4hep/setup.sh
